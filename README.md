@@ -40,3 +40,6 @@ NTSTATUS NTAPI DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING Registry
 	return STATUS_SUCCESS;
 }
 ```
+
+# refer
+https://www.cnblogs.com/LyShark/p/16832307.html
