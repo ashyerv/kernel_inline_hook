@@ -6,7 +6,19 @@ a base kernel inline hook lib (use LDE engine)
 ```
 ULONG NtOpenProcess_patch_size = 0;
 PUCHAR NtOpenProcess_head_n_byte = NULL;
-PVOID ori_NtOpenProcess = NULL;`
+PVOID ori_NtOpenProcess = NULL;
+
+NTSTATUS NTAPI Hooked_NtOpenProcess(
+    PHANDLE ProcessHandle,
+    ACCESS_MASK DesiredAccess,
+    POBJECT_ATTRIBUTES ObjectAttributes,
+    PCLIENT_ID ClientId
+)
+{
+    mydbg("use here \r\n");
+    return ((fn_NtOpenProcess)ori_NtOpenProcess)(ProcessHandle, DesiredAccess, ObjectAttributes, ClientId);
+}
+
 ```
 ```
 NTSTATUS NTAPI DriverUnload(PDRIVER_OBJECT DriverObject)
