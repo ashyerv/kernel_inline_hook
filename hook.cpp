@@ -5,15 +5,15 @@
 
 LDE_DISASM lde_disasm;
 
-bool lde_init()
+BOOLEAN lde_init()
 {
 	lde_disasm = (LDE_DISASM)ExAllocatePoolWithTag(NonPagedPool, 12800, 'oniZ');
 	if (lde_disasm)
 	{
 		RtlCopyMemory(lde_disasm, szShellCode, 12800);
-		return true;
+		return TRUE;
 	}
-	return false;
+	return FALSE;
 }
 
 
