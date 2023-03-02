@@ -3,6 +3,7 @@
 #define kmalloc(_s) ExAllocatePoolWithTag(NonPagedPool, _s, 'SYSW')
 #define kfree(_p) ExFreePool(_p)
 
+LDE_DISASM lde_disasm;
 
 bool lde_init()
 {
