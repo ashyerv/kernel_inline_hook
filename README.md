@@ -6,9 +6,6 @@ a base kernel inline hook lib (use LDE engine)
 ULONG NtOpenProcess_patch_size = 0;	//patch size
 PUCHAR NtOpenProcess_head_n_byte = NULL;	//patch size buffer
 PVOID ori_NtOpenProcess = NULL;	//origin Ntopenprocess
-
-
-
 void go_hook_()
 {
 	NtOpenProcess_head_n_byte = (PUCHAR)HookKernelApi(GetFunctionAddr(L"NtOpenProcess"), (PVOID)Hooked_NtOpenProcess, &ori_NtOpenProcess, &NtOpenProcess_patch_size);
@@ -18,8 +15,6 @@ void go_unhook_()
 {
 	UnhookKernelApi(GetFunctionAddr(L"NtOpenProcess"), NtOpenProcess_head_n_byte, NtOpenProcess_patch_size);
 }
-
-//==============================================
 
 NTSTATUS NTAPI DriverEntry(__in PDRIVER_OBJECT DriverObject, __in PUNICODE_STRING RegistryPath)
 {
