@@ -31,15 +31,12 @@ NTSTATUS NTAPI DriverUnload(PDRIVER_OBJECT DriverObject)
 ```
 NTSTATUS NTAPI DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)
 {
-	//blabla...
+	UNREFERENCED_PARAMETER(RegistryPath);
+	DriverObject->DriverUnload = (PDRIVER_UNLOAD)DriverUnload;
+	
 	if (!lde_init())
 		return STATUS_UNSUCCESSFUL;
-
-	NtOpenProcess_head_n_byte = (PUCHAR)HookKernelApi(GetFunctionAddr(L"NtOpenProcess"), 
-	(PVOID)Hooked_NtOpenProcess, 
-	&ori_NtOpenProcess, 
-	&NtOpenProcess_patch_size);
-
+	NtOpenProcess_head_n_byte = (PUCHAR)HookKernelApi(GetFunctionAddr(L"NtOpenProcess"), (PVOID)Hooked_NtOpenProcess, &ori_NtOpenProcess, 	&NtOpenProcess_patch_size);
 	return STATUS_SUCCESS;
 }
 ```
