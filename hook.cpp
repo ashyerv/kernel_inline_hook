@@ -4,6 +4,18 @@
 #define kfree(_p) ExFreePool(_p)
 
 
+bool lde_init()
+{
+	lde_disasm = (LDE_DISASM)ExAllocatePoolWithTag(NonPagedPool, 12800, 'oniZ');
+	if (lde_disasm)
+	{
+		RtlCopyMemory(lde_disasm, szShellCode, 12800);
+		return true;
+	}
+	return false;
+}
+
+
 KIRQL WPOFFx64()
 {
 	KIRQL irql = KeRaiseIrqlToDpcLevel();
