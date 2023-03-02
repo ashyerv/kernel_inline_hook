@@ -2,7 +2,7 @@
 a base kernel inline hook lib (use LDE engine)
 
 
-#how use :
+# how use :
 ULONG NtOpenProcess_patch_size = 0;	//patch size
 PUCHAR NtOpenProcess_head_n_byte = NULL;	//patch size buffer
 PVOID ori_NtOpenProcess = NULL;	//origin Ntopenprocess
