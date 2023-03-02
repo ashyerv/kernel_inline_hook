@@ -1,5 +1,5 @@
 #pragma once
-
+#include "lde64.h"
 
 typedef INT(*LDE_DISASM)(PVOID address, INT bits);
 extern LDE_DISASM lde_disasm;
