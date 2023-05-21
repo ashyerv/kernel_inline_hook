@@ -42,4 +42,5 @@ NTSTATUS NTAPI DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING Registry
 ```
 
 # refer
-https://www.cnblogs.com/LyShark/p/16832307.html
+https://bbs.kanxue.com/thread-211647.htm
+(finded to old refer)
